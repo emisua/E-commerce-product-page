@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react'
+import useEcom from '../hooks/useEcom'
+
 const NavCart = () => {
   const [activeCart, setActiveCart] = useState(false)
+  const { cart } = useEcom()
+
+  console.log(cart)
+
   // Calcular ancho del navbar
 
   const calcularAncho = () => {
@@ -46,7 +52,13 @@ const NavCart = () => {
             Cart
           </div>
           <div className='content text-xs text-gray-600 font-semibold px-4 py-10 text-center'>
-            Your cart is empty
+            {cart.length < 1 ? (
+              <p>Tu carrito está vacío</p>
+            ) : (
+              cart.map((producto) => {
+                return producto.name
+              })
+            )}
           </div>
         </div>
       )}

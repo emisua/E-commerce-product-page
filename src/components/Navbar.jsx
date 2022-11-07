@@ -47,8 +47,8 @@ const Navbar = () => {
           <img
             src='./image-avatar.png'
             alt='avatar'
-            width={40}
-            className='border-2 border-orange-400 rounded-full cursor-pointer'
+            width={46}
+            className='border-2 border-transparent hover:border-2 hover:border-orange-400 rounded-full cursor-pointer ml-8'
           />
         </div>
       </nav>
