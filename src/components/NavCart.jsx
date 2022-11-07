@@ -56,7 +56,7 @@ const NavCart = () => {
               <p>Tu carrito está vacío</p>
             ) : (
               cart.map((producto) => {
-                return producto.name
+                return <p key={producto.name}>{producto.name}</p>
               })
             )}
           </div>
