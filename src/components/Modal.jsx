@@ -17,7 +17,7 @@ const Modal = ({ product }) => {
     if (mainImageIndex > 0) {
       setModalMainImage(product.images[mainImageIndex - 1])
     } else {
-      setModalMainImage(product.images[data.length - 1])
+      setModalMainImage(product.images[product.images.length - 1])
     }
   }
 

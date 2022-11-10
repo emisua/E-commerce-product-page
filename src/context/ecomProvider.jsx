@@ -9,6 +9,7 @@ const EcomProvider = ({ children }) => {
   const [mainImage, setMainImage] = useState(product.images[0])
   const [modal, setModal] = useState(false)
   const [cart, setCart] = useState([])
+  const [activeCart, setActiveCart] = useState(false)
 
   return (
     <EcomContext.Provider
@@ -21,6 +22,8 @@ const EcomProvider = ({ children }) => {
         cart,
         setCart,
         product,
+        activeCart,
+        setActiveCart,
       }}
     >
       {children}

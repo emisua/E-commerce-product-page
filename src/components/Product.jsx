@@ -3,7 +3,7 @@ import Slider from './Slider'
 import useEcom from '../hooks/useEcom'
 
 const Product = () => {
-  const { cart, setCart, product } = useEcom()
+  const { cart, setCart, product, setActiveCart } = useEcom()
 
   const { category, name, price, discount, olderPrice, desc } = product
 
@@ -37,17 +37,17 @@ const Product = () => {
       setCart([...cart])
     } else {
       // Si no está en el carrito, se agrega
-      console.log('Si no está en el carrito, se agrega')
       setCart([...cart, productToCart])
     }
+    setActiveCart(true)
   }
 
   return (
-    <section className='container max-w-screen-lg mx-auto product flex justify-center items-center px-12 py-20 gap-28'>
-      <div className='slider flex flex-col w-5/12'>
+    <section className='container max-w-screen-lg mx-auto product flex justify-center items-center px-0 md:px-12 py-0 md:py-20 gap-6 md:gap-28 md:flex-row flex-col'>
+      <div className='slider flex flex-col md:w-5/12'>
         <Slider />
       </div>
-      <div className='product-content w-5/12'>
+      <div className='product-content md:w-5/12 px-6 md:px-0'>
         <header>
           <h4 className='text-orange-400 text-xs font-bold tracking-wider mb-4'>
             {category.toUpperCase()}
@@ -55,37 +55,41 @@ const Product = () => {
           <h1 className='text-4xl font-bold tracking-normal'>{name}</h1>
         </header>
         <main>
-          <p className='text-gray-500 mt-8 text-[14px] leading-6'>{desc}</p>
-          <p className='money text-[24px] font-bold flex gap-3 mb-0 mt-6'>
-            <span>${price}.00</span>
-            <span className='discount bg-orange-100 text-xs rounded-md font-bold text-orange-500 tracking-wide self-center py-[2px] px-[6px]'>
-              {discount}%
-            </span>
+          <p className='text-gray-500 mt-4 md:mt-8 text-[14px] leading-6'>
+            {desc}
           </p>
-          <del className='text-gray-300 text-[13px] font-bold'>
-            ${olderPrice}.00
-          </del>
+          <div className='prices flex flex-row items-center justify-between md:mt-6 mt-4 md:flex-col md:justify-start md:items-start'>
+            <p className='money md:text-[24px] text-4xl font-bold flex gap-3 mb-0'>
+              <span>${price}.00</span>
+              <span className='discount bg-orange-100 md:text-xs text-sm rounded-md font-bold text-orange-500 tracking-wide self-center py-[2px] px-[6px]'>
+                {discount}%
+              </span>
+            </p>
+            <del className='text-gray-300 md:text-[13px] text-md font-bold'>
+              ${olderPrice}.00
+            </del>
+          </div>
         </main>
-        <footer className='price flex flex-col'>
-          <div className='buttons flex flex-row gap-3 max-w-[26rem] mt-6'>
-            <div className='cantidad w-4/12 bg-slate-100 rounded-lg flex items-center justify-between'>
+        <footer className='price flex flex-col pb-12 md:pb-0'>
+          <div className='buttons flex md:flex-row flex-col gap-4 max-w-full mt-6'>
+            <div className='cantidad md:w-4/12 w-full bg-slate-100 rounded-lg flex items-center justify-between'>
               <button
-                className='font-bold text-xl leading-none text-orange-500 flex-1 h-full rounded-tl-lg rounded-bl-lg hover:bg-gray-200'
+                className='font-bold text-xl leading-none text-orange-500 flex-1 h-full rounded-tl-lg rounded-bl-lg hover:bg-gray-200 py-4 md:py-0'
                 onClick={handleCantidadMinus}
               >
                 -
               </button>
-              <span className='font-bold text-xs leading-none text-gray-900 flex-1 h-full rounded-lg flex justify-center items-center'>
+              <span className='font-bold md:text-xs text-md leading-none text-gray-900 flex-1 h-full rounded-lg flex justify-center items-center'>
                 {cantidad}
               </span>
               <button
-                className='font-bold text-xl leading-none text-orange-500 flex-1 h-full rounded-tr-lg rounded-br-lg hover:bg-gray-200'
+                className='font-bold text-xl leading-none text-orange-500 flex-1 h-full rounded-tr-lg rounded-br-lg hover:bg-gray-200 py-4 md:py-0'
                 onClick={handleCantidadPlus}
               >
                 +
               </button>
             </div>
-            <div className='addtocart w-7/12'>
+            <div className='addtocart md:w-7/12 w-full'>
               <button
                 className='flex bg-orange-500 hover:bg-orange-400 transition-all duration-300 hover:shadow-2xl hover:shadow-orange-500 justify-center items-center py-4 rounded-lg text-white text-sm w-full gap-3 shadow-orange-200 shadow-xl font-bold'
                 onClick={() => handleAddToCart(product)}
