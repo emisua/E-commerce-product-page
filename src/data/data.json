@@ -1,22 +1,33 @@
 [
-  {
-    "imgid": "1",
-    "imgurl": "./image-product-1.jpg",
-    "imgthumb": "./image-product-1-thumbnail.jpg"
-  },
-  {
-    "imgid": "2",
-    "imgurl": "./image-product-2.jpg",
-    "imgthumb": "./image-product-2-thumbnail.jpg"
-  },
-  {
-    "imgid": "3",
-    "imgurl": "./image-product-3.jpg",
-    "imgthumb": "./image-product-3-thumbnail.jpg"
-  },
-  {
-    "imgid": "4",
-    "imgurl": "./image-product-4.jpg",
-    "imgthumb": "./image-product-4-thumbnail.jpg"
+  { 
+    "id": 1,
+    "category": "Sneaker company",
+    "name": "Fall Limited Edition Sneakers",
+    "price": 125.0,
+    "discount": 50,
+    "olderPrice": 250.0,
+    "desc": "These low profile sneakers are your perfect caual wear companion. Featurin a durable rubber outer sole, they'll withstand everything the weather can offer.",
+      "images": [
+        {
+          "imgid": "1",
+          "imgurl": "./image-product-1.jpg",
+          "imgthumb": "./image-product-1-thumbnail.jpg"
+        },
+        {
+          "imgid": "2",
+          "imgurl": "./image-product-2.jpg",
+          "imgthumb": "./image-product-2-thumbnail.jpg"
+        },
+        {
+          "imgid": "3",
+          "imgurl": "./image-product-3.jpg",
+          "imgthumb": "./image-product-3-thumbnail.jpg"
+        },
+        {
+          "imgid": "4",
+          "imgurl": "./image-product-4.jpg",
+          "imgthumb": "./image-product-4-thumbnail.jpg"
+        }
+      ]
   }
 ]

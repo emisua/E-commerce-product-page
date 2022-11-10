@@ -5,7 +5,8 @@ import data from '../data/data.json'
 const EcomContext = createContext()
 
 const EcomProvider = ({ children }) => {
-  const [mainImage, setMainImage] = useState(data[0])
+  const product = data[0]
+  const [mainImage, setMainImage] = useState(product.images[0])
   const [modal, setModal] = useState(false)
   const [cart, setCart] = useState([])
 
@@ -19,6 +20,7 @@ const EcomProvider = ({ children }) => {
         setModal,
         cart,
         setCart,
+        product,
       }}
     >
       {children}

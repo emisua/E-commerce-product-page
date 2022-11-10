@@ -3,7 +3,7 @@ import NavCart from './NavCart'
 
 const Navbar = () => {
   return (
-    <div className='container max-w-screen-lg mx-auto menu'>
+    <div className='container max-w-screen-lg mx-auto menu p-0'>
       <nav className='nav flex border-b gap-8 text-gray-400 items-center h-24 px-4'>
         <a href='/'>
           <img

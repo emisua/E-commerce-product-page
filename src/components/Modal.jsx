@@ -1,29 +1,29 @@
 import { useState } from 'react'
 import useEcom from '../hooks/useEcom'
-const Modal = () => {
+const Modal = ({ product }) => {
   const { data, setModal } = useEcom()
 
-  const [modalMainImage, setModalMainImage] = useState(data[0])
-  const mainImageIndex = data.indexOf(modalMainImage, 0)
+  const [modalMainImage, setModalMainImage] = useState(product.images[0])
+  const mainImageIndex = product.images.indexOf(modalMainImage, 0)
   const nextImage = () => {
-    if (mainImageIndex < data.length - 1) {
-      setModalMainImage(data[mainImageIndex + 1])
+    if (mainImageIndex < product.images.length - 1) {
+      setModalMainImage(product.images[mainImageIndex + 1])
     } else {
-      setModalMainImage(data[0])
+      setModalMainImage(product.images[0])
     }
   }
 
   const prevImage = () => {
     if (mainImageIndex > 0) {
-      setModalMainImage(data[mainImageIndex - 1])
+      setModalMainImage(product.images[mainImageIndex - 1])
     } else {
-      setModalMainImage(data[data.length - 1])
+      setModalMainImage(product.images[data.length - 1])
     }
   }
 
   return (
-    <div className='modal absolute top-0 left-0 w-full min-h-screen bg-black bg-opacity-80 flex justify-center items-center'>
-      <div className='modal-content max-w-[500px] mx-auto'>
+    <div className='modal absolute top-0 left-0 bottom-0 w-full min-h-screen h-fit bg-black bg-opacity-80 flex justify-center items-center select-none'>
+      <div className='modal-content max-w-[50vw] mx-auto'>
         <div
           className='close cursor-pointer mb-4 flex justify-end stroke-gray-100 hover:stroke-orange-500'
           onClick={() => setModal(false)}
@@ -42,7 +42,7 @@ const Modal = () => {
             />
           </svg>
         </div>
-        <div className='main-img flex justify-center items-center relative'>
+        <div className='main-img flex justify-center items-center relative shadow-2xl'>
           <img
             src={modalMainImage.imgurl}
             alt='modalMainImage'
@@ -89,23 +89,23 @@ const Modal = () => {
           </div>
         </div>
         <div className='thumbs flex flex-row justify-between items-center mt-6 max-w-[400px] mx-auto'>
-          {data.map((thumb) => {
-            const { imgid, imgurl, imgthumb } = thumb
+          {product.images.map((image) => {
+            const { imgid, imgthumb } = image
             return (
               <div
-                className={`thumb rounded-lg overflow-hidden bg-white ${
+                className={`thumb rounded-lg overflow-hidden bg-white  ${
                   modalMainImage.imgid === imgid &&
                   'outline outline-3 outline-orange-500'
                 }`}
                 key={imgid}
               >
                 <img
-                  src={imgurl}
+                  src={imgthumb}
                   width={80}
                   className={`hover:opacity-50 cursor-pointer ${
                     modalMainImage.imgid === imgid && 'opacity-50'
                   }`}
-                  onClick={() => setModalMainImage(thumb)}
+                  onClick={() => setModalMainImage(image)}
                 />
               </div>
             )
