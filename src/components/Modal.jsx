@@ -106,6 +106,7 @@ const Modal = ({ product }) => {
                     modalMainImage.imgid === imgid && 'opacity-50'
                   }`}
                   onClick={() => setModalMainImage(image)}
+                  alt='Product thumbnail'
                 />
               </div>
             )

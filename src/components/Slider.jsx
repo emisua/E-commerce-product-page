@@ -94,6 +94,7 @@ const Slider = () => {
                     mainImage.imgid === imgid && 'opacity-50'
                   }`}
                   onClick={() => setMainImage(image)}
+                  alt='Product Thumbnail'
                 />
               </div>
             )
